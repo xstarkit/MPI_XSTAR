@@ -5,7 +5,7 @@
 #$ -N mpixstar
 #$ -o mpixstar.log
 #$ -l mres=4G,h_data=4G,h_vmem=4G
-#$ -l s_cpu=24:00:00
+#$ -l s_cpu=96:00:00
 #$ -m abe -M youremail@mit.edu
 #
 echo "Starting mpixstar run at: `date`" > mpixstar.info
