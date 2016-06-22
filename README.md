@@ -9,7 +9,7 @@ photoionized gases (Kallman & Bautista 2001).
  
 The master program (rank=0) runs xstinitable from the HEADAS to 
 create a list of XSTAR commands for given physical parameters, 
-so called joblist, as well as a xstinitable.fits file. which are 
+so called joblist, as well as a xstinitable.fits file, which is 
 necessary for producing xout_ain.fits, xout_aout.fits, and 
 xout_mtable.fits. The joblist is used to create directories in 
 ascending order, where each individual xstar is spawned on each 
