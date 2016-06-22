@@ -3,7 +3,7 @@
 #SBATCH -J mpixstar           # Jon name
 #SBATCH -n 8                  # Number of cores
 #SBATCH -N 1                  # 1 if under 32 cores; >= 2 machines otherwise
-#SBATCH -t 0-24:00            # Runtime in minutes
+#SBATCH -t 4-00:00            # Runtime in minutes
 #SBATCH --contiguous          # Ensure that all of the cores are on the same Infiniband network
 #SBATCH --mem-per-cpu=4000    # Memory per cpu in MB (see also --mem)
 #SBATCH -o mpixstar_%j.out    # File to which STDOUT will be written
