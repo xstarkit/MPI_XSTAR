@@ -51,11 +51,7 @@ as ISIS or XSPEC.
     setenv ATOMDB /../atomdb/atomdb_v3.0.2
 
 4. How to use mpirun for running mpixstar:
-
-    mpirun -np number_of_processor ...
-
-e.g.
-
+    mpirun -np number_of_processor ... e.g.
 mpirun --mca mpi_warn_on_fork 0 -np 8 ./mpixstar cfrac=0.4 \
 temperature=100. lcpres=0 pressure=0.03 \
 spectrum='file' spectrum_file='/data/plato/adanehka/mpixstar/sed.dat' \
