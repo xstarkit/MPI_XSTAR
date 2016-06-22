@@ -57,7 +57,7 @@ as ISIS or XSPEC.
 
     mpirun --mca mpi_warn_on_fork 0 -np 8 ./mpixstar cfrac=0.4 \
 
-    temperature=100. lcpres=0 pressure=0.03 spectrum='pow'\
+    temperature=100. lcpres=0 pressure=0.03 spectrum='pow' \
 
     spectun=0 trad=-1. density=1.0e+12 densitytyp=0 \
 
