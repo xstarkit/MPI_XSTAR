@@ -69,12 +69,15 @@ xeemin=0.1 critf=1.e-6 vturbi=100. npass=1 ncn2=9999 > mpixstar.log &
 
 5. How to run mpirun on clusters and supercomputers:
 In the batches folder, a sample of running batch files are included 
-for different job scheduling systems. To submit a batch file in
-. Portable Batch System (PBS)
+for different job scheduling systems. 
+
+To submit a batch file:
+
++ Portable Batch System (PBS)
      > qsub mpixstar_run.job
 
-. Sun Grid Engine (SGE)
++ Sun Grid Engine (SGE)
      > qsub mpixstar_run.job
 
-. Simple Linux Utility for Resource Management (SLURM)
++ Simple Linux Utility for Resource Management (SLURM)
      > sbatch mpixstar_run.sh
