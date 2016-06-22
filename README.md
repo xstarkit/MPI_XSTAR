@@ -83,4 +83,4 @@ To submit a batch file:
 + Simple Linux Utility for Resource Management (SLURM)
      > sbatch mpixstar_run.sh
 
-Webiste: http://hea-www.cfa.harvard.edu/~adanehka/mpi_xstar/
+Website: http://hea-www.cfa.harvard.edu/~adanehka/mpi_xstar/
