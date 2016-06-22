@@ -1,6 +1,8 @@
 # MPI_XSTAR
 MPI-based parallelization of XSTAR
 
+Website: http://hea-www.cfa.harvard.edu/~adanehka/mpi_xstar/
+
 MPI_XSTAR: A parallel execution of multiple XSTAR runs using 
 Message Passing Interface (MPI). XSTAR is part ofthe HEASARC's 
 standard HEADAS package, and is computer program used to for
@@ -82,5 +84,3 @@ To submit a batch file:
 
 + Simple Linux Utility for Resource Management (SLURM)
      > sbatch mpixstar_run.sh
-
-Website: http://hea-www.cfa.harvard.edu/~adanehka/mpi_xstar/
