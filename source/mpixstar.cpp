@@ -7,7 +7,7 @@
  * 
  * The master program (rank=0) runs xstinitable from the HEADAS to 
  * create a list of XSTAR commands for given physical parameters, 
- * so called joblist, as well as a xstinitable.fits file. which are 
+ * so called joblist, as well as a xstinitable.fits file, which is 
  * necessary for producing xout_ain.fits, xout_aout.fits, and 
  * xout_mtable.fits. The joblist is used to create directories in 
  * ascending order, where each individual xstar is spawned on each 
@@ -17,7 +17,7 @@
  * 
  * The master program (rank=0) then invokes xstar2table from the 
  * HEADAS upon the contents of each directory in order to produce 
- * table modelfiles, namely xout_ain.fits, xout_aout.fits, and 
+ * table model files, namely xout_ain.fits, xout_aout.fits, and 
  * xout_mtable.fits, suitable for spectroscopy analysis tools such 
  * as ISIS or XSPEC.
  * 
