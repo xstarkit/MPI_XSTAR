@@ -4,7 +4,7 @@
 #$ -cwd -j y
 #$ -N mpixstar
 #$ -o mpixstar.log
-#$ -l mres=3G,h_data=3G,h_vmem=3G
+#$ -l mres=4G,h_data=4G,h_vmem=4G
 #$ -l s_cpu=24:00:00
 #$ -m abe -M youremail@mit.edu
 #
