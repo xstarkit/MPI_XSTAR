@@ -21,7 +21,7 @@
  * xout_mtable.fits, suitable for spectroscopy analysis tools such 
  * as ISIS or XSPEC.
  * 
- * Developed by A. Danehkar (ashkbiz.danehkar@cfa.harvard.edu)
+ * Developed by A. Danehkar (ashkbiz.danehkar AT cfa.harvard.edu)
  * Copyright (c) 2016, Smithsonian Astrophysical Observatory
 */
 
