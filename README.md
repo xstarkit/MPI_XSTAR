@@ -19,7 +19,7 @@ completed.
  
 The master program (rank=0) then invokes xstar2table from the 
 HEADAS upon the contents of each directory in order to produce 
-table modelfiles, namely xout_ain.fits, xout_aout.fits, and 
+table model files, namely xout_ain.fits, xout_aout.fits, and 
 xout_mtable.fits, suitable for spectroscopy analysis tools such 
 as ISIS or XSPEC.
 
