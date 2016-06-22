@@ -5,7 +5,7 @@
 #PBS -N mpixstar
 #PBS -l ncpus=8
 #PBS -l mem=32gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=96:00:00
 #PBS -o mpixstar.out
 #PBS -e mpixstar.err
 #PBS -M youremail@mit.edu
