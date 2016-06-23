@@ -1,7 +1,7 @@
 /*  
  * mpi_xstar: A parallel execution of multiple XSTAR runs using 
  * Message Passing Interface (MPI). XSTAR is part of the HEASARC's 
- * standard HEADAS package, and is computer program used for
+ * standard HEADAS package, and is a computer program used for
  * calculating the physical conditions and emission spectra of 
  * photoionized gases (Kallman & Bautista 2001).
  * 
