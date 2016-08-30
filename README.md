@@ -1,30 +1,13 @@
 # MPI_XSTAR
 MPI-based parallelization of XSTAR
 
+MPI_XSTAR: A parallel execution of multiple [XSTAR](https://heasarc.gsfc.nasa.gov/xstar/xstar.html) runs using [Message Passing Interface](http://www.mpi-forum.org/docs/docs.html) (MPI). XSTAR is part of the [HEASARC's standard HEADAS package](http://heasarc.nasa.gov/lheasoft/), and is a computer program used for calculating the physical conditions and emission spectra of photoionized gases ([Kallman & Bautista 2001](http://adsabs.harvard.edu/abs/2001ApJS..133..221K)).
+ 
+The master program (rank=0) runs xstinitable from the HEADAS to create a list of XSTAR commands for given physical parameters, so called joblist, as well as a xstinitable.fits file, which is necessary for producing xout_ain.fits, xout_aout.fits, and xout_mtable.fits. The joblist is used to create directories in ascending order, where each individual xstar is spawned on each processor and outputs are saved. When each processor spawns the xstar, the main thread is waited until the xstar execution is completed.
+ 
+The master program (rank=0) then invokes xstar2table from the HEADAS upon the contents of each directory in order to produce table model files, namely xout_ain.fits, xout_aout.fits, and xout_mtable.fits, suitable for spectroscopy analysis tools such as [ISIS](http://space.mit.edu/asc/isis/) or [XSPEC](https://heasarc.gsfc.nasa.gov/xanadu/xspec/).
+
 Website: http://hea-www.cfa.harvard.edu/~adanehka/mpi_xstar/
-
-MPI_XSTAR: A parallel execution of multiple XSTAR runs using 
-Message Passing Interface (MPI). XSTAR is part of the HEASARC's 
-standard HEADAS package, and is a computer program used for
-calculating the physical conditions and emission spectra of 
-photoionized gases (Kallman & Bautista 2001).
- 
-The master program (rank=0) runs xstinitable from the HEADAS to 
-create a list of XSTAR commands for given physical parameters, 
-so called joblist, as well as a xstinitable.fits file, which is 
-necessary for producing xout_ain.fits, xout_aout.fits, and 
-xout_mtable.fits. The joblist is used to create directories in 
-ascending order, where each individual xstar is spawned on each 
-processor and outputs are saved. When each processor spawns the 
-xstar, the main thread is waited until the xstar execution is 
-completed.
- 
-The master program (rank=0) then invokes xstar2table from the 
-HEADAS upon the contents of each directory in order to produce 
-table model files, namely xout_ain.fits, xout_aout.fits, and 
-xout_mtable.fits, suitable for spectroscopy analysis tools such 
-as ISIS or XSPEC.
-
 
 1: Pre-compile Step:
 
