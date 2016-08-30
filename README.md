@@ -1,5 +1,5 @@
 # MPI_XSTAR
-MPI-based parallelization of XSTAR
+MPI-based parallelization of XSTAR photoionization program
 
 MPI_XSTAR: A parallel execution of multiple [XSTAR](https://heasarc.gsfc.nasa.gov/xstar/xstar.html) runs using [Message Passing Interface](http://www.mpi-forum.org/docs/docs.html) (MPI). XSTAR is part of the [HEASARC's standard HEADAS package](http://heasarc.nasa.gov/lheasoft/), and is a computer program used for calculating the physical conditions and emission spectra of photoionized gases ([Kallman & Bautista 2001](http://adsabs.harvard.edu/abs/2001ApJS..133..221K)).
  
