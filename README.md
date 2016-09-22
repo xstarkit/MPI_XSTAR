@@ -59,7 +59,7 @@ for example:
     mnabund=0 feabund=1 coabund=0 niabund=1 cuabund=0 znabund=0 \
     modelname='xstar_pg1211' nsteps=10 niter=99 \
     lwrite=0 lprint=1 lstep=0 emult=0.5 taumax=5. radexp=0. \
-    xeemin=0.1 critf=1.e-6 vturbi=100. npass=1 ncn2=9999 > mpixstar.log &
+    xeemin=0.1 critf=1.e-6 vturbi=100. npass=1 ncn2=9999 
 
 5: How to run mpirun on clusters and supercomputers:
 
