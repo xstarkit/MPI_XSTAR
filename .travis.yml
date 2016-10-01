@@ -49,4 +49,5 @@ install:
   - if test "$PLUMED_CXX" == "mpic++" -a "$TRAVIS_OS_NAME" == "osx" ;   then brew install openmpi ; fi
   - make
 
-script: scons
+script: 
+  - if test "$PLUMED_CXX" ; then make; fi
