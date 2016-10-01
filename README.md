@@ -1,7 +1,7 @@
 ## MPI_XSTAR
 [![Build Status](https://travis-ci.org/xstarkit/MPI_XSTAR.svg?branch=master)](https://travis-ci.org/xstarkit/MPI_XSTAR)
 [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/xstarkit/mpi_xstar)
-[![GitHub license](https://img.shields.io/github/license/inveniosoftware/invenio-github.svg)](https://github.com/equib/proEQUIB/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xstarkit/MPI_XSTAR/blob/master/LICENSE)
 
 **MPI_XSTAR** - MPI-based parallelization of XSTAR photoionization program
 
