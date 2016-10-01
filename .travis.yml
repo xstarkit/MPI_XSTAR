@@ -1,0 +1,27 @@
+language: cpp
+
+os: linux
+
+compiler:
+  - gcc
+
+env:
+  global:
+    - HYDRA_LAUNCHER=fork
+  matrix:
+    - MPI=mpich
+    - MPI=openmpi
+
+matrix:
+  include:
+    - os: osx
+      env: MPI=mpich
+      language: cpp
+    - os: osx
+      env: MPI=openmpi
+      language: cpp
+      
+install:
+- make
+
+script: scons
