@@ -9,38 +9,10 @@ matrix:
   - os: linux
     dist: trusty
     sudo: required
-    env: PLUMED_CC=gcc   PLUMED_CXX=g++    CONFIG_FLAGS="--enable-debug --enable-debug-glibcxx"
-  - os: linux
-    dist: trusty
-    sudo: required
-  - os: linux
-    dist: trusty
-    sudo: required
-    env: CPPCHECK=yes CPPCHECK_VERSION=1.75
-  - os: linux
-    dist: trusty
-    sudo: required
-    env: PLUMED_CC=gcc   PLUMED_CXX=g++     PLUMED_CXXFLAGS=-O3 LAPACK=yes
-  - os: linux
-    dist: precise
-    sudo: required
-    env: PLUMED_CC=gcc   PLUMED_CXX=g++
-  - os: linux
-    dist: trusty
-    sudo: required
     env: PLUMED_CC=mpicc PLUMED_CXX=mpic++  PLUMED_CXXFLAGS=-O3 LAPACK=yes CONFIG_FLAGS="--disable-external-lapack"
   - os: osx
     osx_image: xcode7.3
-    env: PLUMED_CC=clang PLUMED_CXX=clang++ PLUMED_CXXFLAGS=-O3
-  - os: osx
-    osx_image: xcode7.3
     env: PLUMED_CC=mpicc PLUMED_CXX=mpic++  PLUMED_CXXFLAGS=-O3
-  - os: osx
-    osx_image: xcode7.3
-    env: PLUMED_MACPORTS="plumed"
-  - os: osx
-    osx_image: xcode7.3
-    env: PLUMED_MACPORTS="plumed +crystallization +manyrestraints +adjmat"
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && test -z "$PLUMED_MACPORTS" ; then brew update > /dev/null ; fi
