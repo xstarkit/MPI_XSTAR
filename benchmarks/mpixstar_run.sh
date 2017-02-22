@@ -9,7 +9,7 @@
 #SBATCH -o mpixstar_%j.out    # File to which STDOUT will be written
 #SBATCH -e mpixstar_%j.err    # File to which STDERR will be written
 #SBATCH --mail-type=BEGIN,END,FAIL  # Type of email notification- BEGIN,END,FAIL,ALL
-#SBATCH --mail-user=ashkbiz.danehkar@gmail.com # Email to which notifications will be sent
+#SBATCH --mail-user=youremail@mit.edu # Email to which notifications will be sent
 
 module load gcc/4.8.2-fasrc01 openmpi/1.8.1-fasrc01
 
@@ -18,7 +18,7 @@ module load gcc/4.8.2-fasrc01 openmpi/1.8.1-fasrc01
 #echo I_MPI_FABRICS=$I_MPI_FABRICS
 # 
 mpirun --mca mpi_warn_on_fork 0 -np $SLURM_NTASKS ./mpixstar cfrac=0.4 temperature=100. lcpres=0 pressure=0.03 \
-spectrum='file' spectrum_file='/n/home07/danehkar/mpixstar2/sed.dat' spectun=0 trad=-1. \
+spectrum='file' spectrum_file='sed.dat' spectun=0 trad=-1. \
 density=1.0e+12 densitytyp=0 columnsof=1.0e+20 columntyp=2 column=1.e+24 columnnst=9 columnint=1 \
 rlrad38=1.e+6 rlogxityp=2 rlogxisof=0 rlogxi=5 rlogxinst=6 rlogxiint=0 \
 habund=1 heabund=1 liabund=0 beabund=0 babund=0 cabund=1 \
