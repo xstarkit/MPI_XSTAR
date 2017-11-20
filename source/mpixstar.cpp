@@ -81,6 +81,12 @@ int main(int argc, char * argv[])
 	int proc_loop, job_num;
 	int len;
 	struct stat sb;
+	// varibales for writing xstar2xspec.log
+	FILE *fp1, *fp2, *fp3, *fp_err;
+	char c;
+	ssize_t commandlength;
+	size_t len2 = 0;
+	char * commandline = NULL;
 	
 	MPI_Request send_req, recv_req;    // Request object for send and receive
 	MPI_Request request= MPI_REQUEST_NULL;;
@@ -192,18 +198,51 @@ int main(int argc, char * argv[])
 	MPI_Barrier(MPI_COMM_WORLD);
 	if (proc_num == 1)
 	{
+		// Create xstar2xspec.log to store xout_step.log
+		fp2 = fopen("xstar2xspec.log", "wb");
+		if (!fp2) printf("Could not create xstar2xspec.log \n");
+		fp3 = fopen("xstinitable.lis", "r");
+		if (!fp3) printf("Could not find xstinitable.lis \n");
+		// start xstar2xspec loop
 		for(index = 1; index <= JobListNum; index++) 
 		{
 			sprintf(pathstr, "%06d", index);
 			strcpy(filestr,"./");
 			strcat(filestr, pathstr);
 			strcat(filestr, "/xout_spect1.fits");
+			// does the xout_spect1.fits file exist?
+			if( access(filestr, F_OK ) == -1 ) {
+				// file doesn't exist
+			}
 			strcpy(xstar2table_run,"xstar2table xstarspec=");
 			strcat(xstar2table_run, filestr);  
 			printf("command: %s\n", xstar2table_run);
 			strcpy(xstar2table_cmd, "xstar2table");
 			status=execute(xstar2table_cmd,xstar2table_run);
+			// write xstar2xspec.log
+			printf("run xstar2xspec on %06d \n", index);
+			sprintf(pathstr, "%06d", index);
+			strcpy(filestr,"./");
+			strcat(filestr, pathstr);
+			strcat(filestr, "/xout_step.log");
+			// does the xout_step.log file exist?
+			if( access(filestr, F_OK ) == -1 ) {
+				// file doesn't exist
+			}
+			commandlength = getline(&commandline, &len2, fp3); 
+			fprintf(fp2, "=============================================\n");
+			fprintf(fp2, "Command Line:\n");
+			fprintf(fp2, "%s", commandline);
+			fprintf(fp2, "\n\nXSTAR Log:");
+			fp1 = fopen(filestr, "r");
+			if (fp1 == NULL) printf("Could not open xout_step.log of %s", pathstr);
+			while ((c = fgetc(fp1)) != EOF) fputc(c, fp2);
+			fclose(fp1);
+			// update xstar2xspec.log with xout_step.log
 		}
+		if (commandline) free(commandline);
+		fclose(fp2);
+		fclose(fp3);
 	} 
 	MPI_Barrier(MPI_COMM_WORLD);
 	MPI_Finalize();  // EXIT MPI 
