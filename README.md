@@ -47,6 +47,8 @@ Initialize the HEADAS and AtomDB (cshrc):
     source $HEADAS/headas-init.sh
     setenv ATOMDB /../atomdb/atomdb_v3.0.2
 
+**Note:** The XSTAR program does not need AtomDB, and uses its own atomic data. However, AtomDB data are required for working with some plasma models in the [Interactive Spectral Interpretation System (ISIS)](http://space.mit.edu/cxc/isis/).
+
 4: How to use mpirun for running mpixstar:
 
     mpirun -np number_of_processor ...
