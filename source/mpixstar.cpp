@@ -87,7 +87,11 @@ int main(int argc, char * argv[])
 	ssize_t commandlength;
 	size_t len2 = 0;
 	char * commandline = NULL;
-	
+	// varibales for writing xstarerror.log
+	char timetext[100];
+	time_t now;
+	struct tm *time_data;
+
 	MPI_Request send_req, recv_req;    // Request object for send and receive
 	MPI_Request request= MPI_REQUEST_NULL;;
 	
@@ -104,6 +108,9 @@ int main(int argc, char * argv[])
   
 	if (proc_rank == 0)
 	{
+		fp_err = fopen("xstarerror.log", "wb");
+		if (!fp_err) printf("Could not create xstarerror.log \n");
+		fclose(fp_err);
 		strcpy(xstinitable_run, "xstinitable ");
 		for(index = 1; index < argc; index++) 
 		{
@@ -116,6 +123,29 @@ int main(int argc, char * argv[])
 		printf("%s\n", xstinitable_run);
 		strcpy(xstinitable_cmd, "xstinitable");
 		status=execute(xstinitable_cmd,xstinitable_run);
+		// does the xstinitable.lis file exist?
+		if( access("xstinitable.lis", F_OK ) == -1 ) {
+			fp_err = fopen("xstarerror.log", "w");
+			now = time(NULL);
+			time_data = localtime(&now);
+			strftime(timetext, sizeof(timetext)-1, "%d %m %Y %H:%M", time_data);
+			fprintf(fp_err,"[%s]: FATAL ERROR! Can't find xstinitable.lis!\n", timetext);
+			fclose(fp_err);
+			MPI_Finalize();
+			exit(0);
+		}
+		// does the xstinitable.fits file exist?
+		if( access("xstinitable.fits", F_OK ) == -1 ) {
+			// file doesn't exist
+			fp_err = fopen("xstarerror.log", "w");
+			now = time(NULL);
+			time_data = localtime(&now);
+			strftime(timetext, sizeof(timetext)-1, "%d %m %Y %H:%M", time_data);
+			fprintf(fp_err,"[%s]: FATAL ERROR! Can't find xstinitable.fits!\n", timetext);
+			fclose(fp_err);
+			MPI_Finalize();
+			exit(0);
+		}
 		status = system("cp xstinitable.fits xout_ain.fits");
 		status = system("cp xstinitable.fits xout_aout.fits");
 		status = system("cp xstinitable.fits xout_mtable.fits");
@@ -169,7 +199,31 @@ int main(int argc, char * argv[])
 				MPI_Info_set(info, "wdir", xstar_dir);
 				printf("Running Xstar: %s\n", xstar_run);
 				
-				len=strlen(xstar_run);
+				len=strlen(xstar_run);		
+				// check if the xstar command length is below 1000 characters
+				if(len>1000) {
+					// the xstar command is very long
+					fp_err = fopen("xstarerror.log", "w");
+					now = time(NULL);
+					time_data = localtime(&now);
+					strftime(timetext, sizeof(timetext)-1, "%d %m %Y %H:%M", time_data);
+					fprintf(fp_err,"[%s]: FATAL ERROR!  This XSTAR command line is %d characters long.\n", timetext, len);
+					fprintf(fp_err,"[%s]: The maximum XSTAR command characters allowed is 1000 !\n", timetext);
+					fclose(fp_err);
+					MPI_Finalize();
+					exit(0);
+				}
+				// make warning if the xstar command length is between 800 and 1000 characters
+				if(len>800) {
+					// the xstar command is long
+					fp_err = fopen("xstarerror.log", "w");
+					now = time(NULL);
+					time_data = localtime(&now);
+					strftime(timetext, sizeof(timetext)-1, "%d %m %Y %H:%M", time_data);
+					fprintf(fp_err,"[%s]: WARNING! This XSTAR command line is %d characters long.\n", timetext, len);
+					fprintf(fp_err,"[%s]: WARNING! The maximum XSTAR command characters allowed is 1000 !\n", timetext);
+					fclose(fp_err);
+				}
 				memset(xstar_argv, 0, sizeof(xstar_argv));
 				strncpy(xstar_argv, xstar_run+6, len-6);
 				printf("Running Xstar Arg: %s\n", xstar_argv);  
@@ -213,6 +267,12 @@ int main(int argc, char * argv[])
 			// does the xout_spect1.fits file exist?
 			if( access(filestr, F_OK ) == -1 ) {
 				// file doesn't exist
+				fp_err = fopen("xstarerror.log", "w");
+				now = time(NULL);
+				time_data = localtime(&now);
+				strftime(timetext, sizeof(timetext)-1, "%d %m %Y %H:%M", time_data);
+				fprintf(fp_err,"[%s]: Can't find %s !\n", timetext, filestr);
+				fclose(fp_err);
 			}
 			strcpy(xstar2table_run,"xstar2table xstarspec=");
 			strcat(xstar2table_run, filestr);  
@@ -228,6 +288,12 @@ int main(int argc, char * argv[])
 			// does the xout_step.log file exist?
 			if( access(filestr, F_OK ) == -1 ) {
 				// file doesn't exist
+				fp_err = fopen("xstarerror.log", "w");
+				now = time(NULL);
+				time_data = localtime(&now);
+				strftime(timetext, sizeof(timetext)-1, "%d %m %Y %H:%M", time_data);
+				fprintf(fp_err,"[%s]: ERROR: Can't find %s !\n", timetext, filestr);
+				fclose(fp_err);
 			}
 			commandlength = getline(&commandline, &len2, fp3); 
 			fprintf(fp2, "=============================================\n");
