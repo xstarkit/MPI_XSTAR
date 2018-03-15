@@ -85,3 +85,9 @@ Sun Grid Engine (SGE):
 Simple Linux Utility for Resource Management (SLURM): 
 
      sbatch mpixstar_run.sh
+
+### Acknowledgement
+
+If you employ MPI_XSTAR in your work, please acknowledge the usage by citing the following reference:
+	
+* A. Danehkar, M. A. Nowak, J. C. Lee, & R. K. Smith, [PASP, 130, 024501](http://adsabs.harvard.edu/abs/2018PASP..130b4501D), 2018
