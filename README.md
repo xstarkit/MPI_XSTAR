@@ -12,7 +12,7 @@ The master program (rank=0) runs xstinitable from the HEADAS to create a list of
  
 The master program (rank=0) then invokes xstar2table from the HEADAS upon the contents of each directory in order to produce table model files, namely xout_ain.fits, xout_aout.fits, and xout_mtable.fits, suitable for spectroscopy analysis tools such as [ISIS](http://space.mit.edu/asc/isis/) or [XSPEC](https://heasarc.gsfc.nasa.gov/xanadu/xspec/).
 
-Website: https://hea-www.cfa.harvard.edu/~adanehka/mpi_xstar/
+Website: https://scholar.harvard.edu/danehkar/codes/mpixstar
 
 ### Installation
 1: Pre-compile Step:
