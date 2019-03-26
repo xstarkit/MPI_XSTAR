@@ -1,7 +1,7 @@
 ## MPI_XSTAR
 [![Build Status](https://travis-ci.org/xstarkit/MPI_XSTAR.svg?branch=master)](https://travis-ci.org/xstarkit/MPI_XSTAR)
 [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/xstarkit/mpi_xstar)
-[![GitHub license](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xstarkit/MPI_XSTAR/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GPL-blue.svg)](https://github.com/xstarkit/MPI_XSTAR/blob/master/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1890562.svg)](https://doi.org/10.5281/zenodo.1890562)
 [![ASCL](https://img.shields.io/badge/ASCL-1712.002-green.svg)](http://adsabs.harvard.edu/abs/2017ascl.soft12002D)
 [![DOI](https://img.shields.io/badge/DOI-10.1088%2F1538--3873%2Faa9dff-blue.svg)](https://doi.org/10.1088/1538-3873/aa9dff)
