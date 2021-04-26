@@ -14,7 +14,7 @@ MPI_XSTAR
     :target: https://github.com/xstarkit/MPI_XSTAR/blob/master/LICENSE
     :alt: GitHub license
     
-.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1890562.svg
+.. image:: https://img.shields.io/badge/DOI-10.5281/zenodo.1890562-blue.svg
     :target: https://doi.org/10.5281/zenodo.1890562
     :alt: Zenodo
     
