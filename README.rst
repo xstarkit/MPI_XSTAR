@@ -2,8 +2,8 @@
 MPI_XSTAR
 =========
 
-.. image:: https://travis-ci.com/xstarkit/MPI_XSTAR.svg?branch=master
-    :target: https://travis-ci.com/xstarkit/MPI_XSTAR
+.. image:: https://app.travis-ci.com/xstarkit/MPI_XSTAR.svg?branch=master
+    :target: https://app.travis-ci.com/github/xstarkit/MPI_XSTAR
     :alt: Build Status
     
 .. image:: http://mybinder.org/badge.svg
