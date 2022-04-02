@@ -149,6 +149,7 @@ int main(int argc, char * argv[])
 		status = system("cp xstinitable.fits xout_ain.fits");
 		status = system("cp xstinitable.fits xout_aout.fits");
 		status = system("cp xstinitable.fits xout_mtable.fits");
+		status = system("cp xstinitable.fits xout_etable.fits");
 		status = system("cp xstinitable.lis xstinitable.txt");
 	} 
 	MPI_Barrier(MPI_COMM_WORLD);
