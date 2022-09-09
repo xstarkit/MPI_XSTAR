@@ -14,8 +14,8 @@ MPI_XSTAR
     :target: https://github.com/xstarkit/MPI_XSTAR/blob/master/LICENSE
     :alt: GitHub license
     
-.. image:: https://img.shields.io/badge/DOI-10.5281/zenodo.1890562-blue.svg
-    :target: https://doi.org/10.5281/zenodo.1890562
+.. image:: https://img.shields.io/badge/DOI-10.5281/zenodo.1890561-blue.svg
+    :target: https://doi.org/10.5281/zenodo.1890561
     :alt: Zenodo
     
 .. image:: https://img.shields.io/badge/ASCL-1712.002-green.svg
@@ -134,3 +134,13 @@ If you employ **MPI_XSTAR** in your scholarly work, please acknowledge the usage
      doi = {10.1088/1538-3873/aa9dff}
    }
 
+Learn More
+==========
+
+==================  =============================================
+**Documentation**   https://xstarkit.github.io/MPI_XSTAR/
+**Repository**      https://github.com/xstarkit/MPI_XSTAR
+**Issues & Ideas**  https://github.com/xstarkit/MPI_XSTAR/issues
+**DOI**             `10.1088/1538-3873/aa9dff <https://doi.org/10.1088/1538-3873/aa9dff>`_
+**Archive**         `10.5281/zenodo.1890561 <https://doi.org/10.5281/zenodo.1890561>`_
+==================  =============================================
