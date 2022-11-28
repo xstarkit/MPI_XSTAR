@@ -43,32 +43,44 @@ Installation
 
 1: Pre-compile Step:
 
-Set OpenMPI Path (bash)::
+Set OpenMPI Path (bash):
+
+.. code-block::
  
         export PATH="/../openmpi/bin:$PATH"
         export LD_LIBRARY_PATH=/../openmpi/lib:$LD_LIBRARY_PATH
 
-Set OpenMPI Path (cshrc)::
+Set OpenMPI Path (cshrc):
+
+.. code-block::
 
         setenv PATH "/../openmpi/bin:$PATH"
         setenv LD_LIBRARY_PATH /../openmpi/lib:$LD_LIBRARY_PATH
 
-2: How to compile and link::
+2: How to compile and link:
+
+.. code-block::
 
         make
 
-How to clean::
+How to clean:
+
+.. code-block::
 
         make  clean
 
 3: Set HEADAS Paths:
-Initialize the HEADAS and AtomDB (bash)::
+Initialize the HEADAS and AtomDB (bash):
+
+.. code-block::
 
         export HEADAS=/../heasoft/x86_64-unknown-linux-gnu-libc2.12
         source $HEADAS/headas-init.sh
         export ATOMDB=/../atomdb/atomdb_v3.0.2
 
-Initialize the HEADAS and AtomDB (cshrc)::
+Initialize the HEADAS and AtomDB (cshrc):
+
+.. code-block::
 
         setenv HEADAS /../heasoft/x86_64-unknown-linux-gnu-libc2.12
         source $HEADAS/headas-init.sh
@@ -76,11 +88,15 @@ Initialize the HEADAS and AtomDB (cshrc)::
 
 *Note:* The XSTAR program does not need AtomDB, and uses its own atomic data. However, AtomDB data are required for working with some plasma models in the `Interactive Spectral Interpretation System (ISIS) <http://space.mit.edu/cxc/isis/>`_.
 
-4: How to use mpirun for running mpixstar::
+4: How to use mpirun for running mpixstar:
+
+.. code-block::
 
         mpirun -np number_of_processor ...
 
-for example::
+for example:
+
+.. code-block::
 
         mpirun --mca mpi_warn_on_fork 0 -np 8 ./mpixstar cfrac=0.4 \
         temperature=100. lcpres=0 pressure=0.03 spectrum='pow' \
@@ -101,15 +117,21 @@ for example::
 In the batches folder, a sample of running batch files are included 
 for different job scheduling systems. To submit a batch file:
 
-Portable Batch System (PBS)::
+Portable Batch System (PBS):
+
+.. code-block::
 
         qsub mpixstar_run.job
 
-Sun Grid Engine (SGE)::
+Sun Grid Engine (SGE):
+
+.. code-block::
 
         qsub mpixstar_run.job
 
-Simple Linux Utility for Resource Management (SLURM)::
+Simple Linux Utility for Resource Management (SLURM):
+
+.. code-block::
 
         sbatch mpixstar_run.sh
 
