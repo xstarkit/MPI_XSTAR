@@ -19,7 +19,7 @@ MPI_XSTAR
     :alt: Zenodo
     
 .. image:: https://img.shields.io/badge/ASCL-1712.002-green.svg
-    :target: http://adsabs.harvard.edu/abs/2017ascl.soft12002D
+    :target: https://ui.adsabs.harvard.edu/abs/2017ascl.soft12002D/abstract
     :alt: ASCL
     
 .. image:: https://img.shields.io/badge/DOI-10.1088%2F1538--3873%2Faa9dff-blue.svg
@@ -32,7 +32,7 @@ MPI_XSTAR
 Description
 ===========
 
-MPI_XSTAR: A parallel execution of multiple `XSTAR <https://heasarc.gsfc.nasa.gov/xstar/xstar.html>`_ runs using `Message Passing Interface <http://www.mpi-forum.org/docs/docs.html>`_ (MPI). XSTAR is part of the `HEASARC's standard HEADAS package <http://heasarc.nasa.gov/lheasoft/>`_, and is a computer program used for calculating the physical conditions and emission spectra of photoionized gases (`Kallman & Bautista 2001 <http://adsabs.harvard.edu/abs/2001ApJS..133..221K>`_).
+MPI_XSTAR: A parallel execution of multiple `XSTAR <https://heasarc.gsfc.nasa.gov/xstar/xstar.html>`_ runs using `Message Passing Interface <http://www.mpi-forum.org/docs/docs.html>`_ (MPI). XSTAR is part of the `HEASARC's standard HEADAS package <http://heasarc.nasa.gov/lheasoft/>`_, and is a computer program used for calculating the physical conditions and emission spectra of photoionized gases (`Kallman & Bautista 2001 <https://ui.adsabs.harvard.edu/abs/2001ApJS..133..221K/abstract>`_).
  
 The master program (rank=0) runs xstinitable from the HEADAS to create a list of XSTAR commands for given physical parameters, so called joblist, as well as a xstinitable.fits file, which is necessary for producing xout_ain.fits, xout_aout.fits, and xout_mtable.fits. The joblist is used to create directories in ascending order, where each individual xstar is spawned on each processor and outputs are saved. When each processor spawns the xstar, the main thread is waited until the xstar execution is completed.
  
@@ -140,7 +140,7 @@ Acknowledgement
 
 If you employ **MPI_XSTAR** in your scholarly work, please acknowledge the usage by citing the following reference:
 	
-* Danehkar, A., Nowak, M. A., Lee, J. C. and Smith, R. K. (2018). MPI_XSTAR: MPI-based Parallelization of the XSTAR Photoionization Program. *Publ. Astron. Soc. Pac.*, **130**, 024501. doi:`10.1088/1538-3873/aa9dff <https://doi.org/10.1088/1538-3873/aa9dff>`_  ads:`2018PASP..130b4501D <https://ui.adsabs.harvard.edu/abs/2018PASP..130b4501D>`_.
+* Danehkar, A., Nowak, M. A., Lee, J. C. and Smith, R. K. (2018). MPI_XSTAR: MPI-based Parallelization of the XSTAR Photoionization Program. *Publ. Astron. Soc. Pac.*, **130**, 024501. doi:`10.1088/1538-3873/aa9dff <https://doi.org/10.1088/1538-3873/aa9dff>`_  ads:`2018PASP..130b4501D <https://ui.adsabs.harvard.edu/abs/2018PASP..130b4501D/abstract>`_.
 
 .. code-block:: bibtex
 
