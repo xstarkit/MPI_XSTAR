@@ -39,7 +39,7 @@
 <h3>
 <a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h3>
 
-<p>MPI_XSTAR: A parallel execution of multiple <a href="https://heasarc.gsfc.nasa.gov/xstar/xstar.html">XSTAR</a> runs using <a href="http://www.mpi-forum.org/docs/docs.html">Message Passing Interface</a> (MPI). XSTAR is part of the <a href="http://heasarc.nasa.gov/lheasoft/">HEASARC's standard HEADAS package</a>, and is a computer program used for calculating the physical conditions and emission spectra of photoionized gases (<a href="http://adsabs.harvard.edu/abs/2001ApJS..133..221K">Kallman &amp; Bautista 2001</a>).</p>
+<p>MPI_XSTAR: A parallel execution of multiple <a href="https://heasarc.gsfc.nasa.gov/xstar/xstar.html">XSTAR</a> runs using <a href="http://www.mpi-forum.org/docs/docs.html">Message Passing Interface</a> (MPI). XSTAR is part of the <a href="http://heasarc.nasa.gov/lheasoft/">HEASARC's standard HEADAS package</a>, and is a computer program used for calculating the physical conditions and emission spectra of photoionized gases (<a href="https://ui.adsabs.harvard.edu/abs/2001ApJS..133..221K/abstract">Kallman &amp; Bautista 2001</a>).</p>
 
 <p>The master program (rank=0) runs xstinitable from the HEADAS to create a list of XSTAR commands for given physical parameters, so called joblist, as well as a xstinitable.fits file, which is necessary for producing xout_ain.fits, xout_aout.fits, and xout_mtable.fits. The joblist is used to create directories in ascending order, where each individual xstar is spawned on each processor and outputs are saved. When each processor spawns the xstar, the main thread is waited until the xstar execution is completed.</p>
 
