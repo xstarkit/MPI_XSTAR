@@ -31,70 +31,67 @@
         <hr>
 
         <section id="main_content">
-          <h2>
-<a id="mpi_xstar" class="anchor" href="#mpi_xstar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MPI_XSTAR</h2>
 
-<p><strong>MPI_XSTAR</strong> - MPI-based parallelization of XSTAR photoionization program</p>
+<div class="document" id="mpi-xstar">
+<h1 class="title">MPI_XSTAR</h1>
+<p><strong>MPI-based parallelization of XSTAR photoionization program</strong></p>
 
-<h3>
-<a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h3>
+<a class="reference external image-reference" href="https://app.travis-ci.com/github/xstarkit/MPI_XSTAR"><img alt="Build Status" src="https://app.travis-ci.com/xstarkit/MPI_XSTAR.svg?branch=master" /></a>
+<a class="reference external image-reference" href="http://mybinder.org/repo/xstarkit/mpi_xstar"><object data="http://mybinder.org/badge.svg" type="image/svg+xml">Binder</object></a>
+<a class="reference external image-reference" href="https://github.com/xstarkit/MPI_XSTAR/blob/master/LICENSE"><object data="https://img.shields.io/badge/license-GPL-blue.svg" type="image/svg+xml">GitHub license</object></a>
+<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.1890561"><object data="https://img.shields.io/badge/DOI-10.5281/zenodo.1890561-blue.svg" type="image/svg+xml">Zenodo</object></a>
+<a class="reference external image-reference" href="https://ui.adsabs.harvard.edu/abs/2017ascl.soft12002D/abstract"><object data="https://img.shields.io/badge/ASCL-1712.002-green.svg" type="image/svg+xml">ASCL</object></a>
+<a class="reference external image-reference" href="https://doi.org/10.1088/1538-3873/aa9dff"><object data="https://img.shields.io/badge/DOI-10.1088%2F1538--3873%2Faa9dff-blue.svg" type="image/svg+xml">DOI</object></a>
 
-<p>MPI_XSTAR: A parallel execution of multiple <a href="https://heasarc.gsfc.nasa.gov/xstar/xstar.html">XSTAR</a> runs using <a href="http://www.mpi-forum.org/docs/docs.html">Message Passing Interface</a> (MPI). XSTAR is part of the <a href="http://heasarc.nasa.gov/lheasoft/">HEASARC's standard HEADAS package</a>, and is a computer program used for calculating the physical conditions and emission spectra of photoionized gases (<a href="https://ui.adsabs.harvard.edu/abs/2001ApJS..133..221K/abstract">Kallman &amp; Bautista 2001</a>).</p>
-
+<div class="section" id="description">
+<h2>Description</h2>
+  
+<p>MPI_XSTAR: A parallel execution of multiple <a class="reference external" href="https://heasarc.gsfc.nasa.gov/xstar/xstar.html">XSTAR</a> runs using <a class="reference external" href="http://www.mpi-forum.org/docs/docs.html">Message Passing Interface</a> (MPI). XSTAR is part of the <a class="reference external" href="http://heasarc.nasa.gov/lheasoft/">HEASARC's standard HEADAS package</a>, and is a computer program used for calculating the physical conditions and emission spectra of photoionized gases (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001ApJS..133..221K/abstract">Kallman &amp; Bautista 2001</a>).</p>
 <p>The master program (rank=0) runs xstinitable from the HEADAS to create a list of XSTAR commands for given physical parameters, so called joblist, as well as a xstinitable.fits file, which is necessary for producing xout_ain.fits, xout_aout.fits, and xout_mtable.fits. The joblist is used to create directories in ascending order, where each individual xstar is spawned on each processor and outputs are saved. When each processor spawns the xstar, the main thread is waited until the xstar execution is completed.</p>
-
-<p>The master program (rank=0) then invokes xstar2table from the HEADAS upon the contents of each directory in order to produce table model files, namely xout_ain.fits, xout_aout.fits, and xout_mtable.fits, suitable for spectroscopy analysis tools such as <a href="http://space.mit.edu/asc/isis/">ISIS</a> or <a href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/">XSPEC</a>.</p>
-
-<p>Website: <a href="http://hea-www.cfa.harvard.edu/%7Eadanehka/mpi_xstar/">http://hea-www.cfa.harvard.edu/~adanehka/mpi_xstar/</a></p>
-
-<h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
-
+<p>The master program (rank=0) then invokes xstar2table from the HEADAS upon the contents of each directory in order to produce table model files, namely xout_ain.fits, xout_aout.fits, and xout_mtable.fits, suitable for spectroscopy analysis tools such as <a class="reference external" href="http://space.mit.edu/asc/isis/">ISIS</a> or <a class="reference external" href="https://heasarc.gsfc.nasa.gov/xanadu/xspec/">XSPEC</a>.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation</h2>
 <p>1: Pre-compile Step:</p>
-
 <p>Set OpenMPI Path (bash):</p>
-
-<pre><code>export PATH="/../openmpi/bin:$PATH"
+<pre class="code literal-block">
+export PATH=&quot;/../openmpi/bin:$PATH&quot;
 export LD_LIBRARY_PATH=/../openmpi/lib:$LD_LIBRARY_PATH
-</code></pre>
-
-<p>Set OpenMPI Path (cshrc):
-    setenv PATH "/../openmpi/bin:$PATH"
-    setenv LD_LIBRARY_PATH /../openmpi/lib:$LD_LIBRARY_PATH</p>
-
+</pre>
+<p>Set OpenMPI Path (cshrc):</p>
+<pre class="code literal-block">
+setenv PATH &quot;/../openmpi/bin:$PATH&quot;
+setenv LD_LIBRARY_PATH /../openmpi/lib:$LD_LIBRARY_PATH
+</pre>
 <p>2: How to compile and link:</p>
-
-<pre><code> make
-</code></pre>
-
+<pre class="code literal-block">
+make
+</pre>
 <p>How to clean:</p>
-
-<pre><code> make  clean
-</code></pre>
-
+<pre class="code literal-block">
+make  clean
+</pre>
 <p>3: Set HEADAS Paths:
 Initialize the HEADAS and AtomDB (bash):</p>
-
-<pre><code>export HEADAS=/../heasoft/x86_64-unknown-linux-gnu-libc2.12
+<pre class="code literal-block">
+export HEADAS=/../heasoft/x86_64-unknown-linux-gnu-libc2.12
 source $HEADAS/headas-init.sh
 export ATOMDB=/../atomdb/atomdb_v3.0.2
-</code></pre>
-
+</pre>
 <p>Initialize the HEADAS and AtomDB (cshrc):</p>
-
-<pre><code>setenv HEADAS /../heasoft/x86_64-unknown-linux-gnu-libc2.12
+<pre class="code literal-block">
+setenv HEADAS /../heasoft/x86_64-unknown-linux-gnu-libc2.12
 source $HEADAS/headas-init.sh
 setenv ATOMDB /../atomdb/atomdb_v3.0.2
-</code></pre>
-
+</pre>
+<p><em>Note:</em> The XSTAR program does not need AtomDB, and uses its own atomic data. However, AtomDB data are required for working with some plasma models in the <a class="reference external" href="http://space.mit.edu/cxc/isis/">Interactive Spectral Interpretation System (ISIS)</a>.</p>
 <p>4: How to use mpirun for running mpixstar:</p>
-
-<pre><code>mpirun -np number_of_processor ...
-</code></pre>
-
+<pre class="code literal-block">
+mpirun -np number_of_processor ...
+</pre>
 <p>for example:</p>
-
-<pre><code>mpirun --mca mpi_warn_on_fork 0 -np 8 ./mpixstar cfrac=0.4 \
+<pre class="code literal-block">
+mpirun --mca mpi_warn_on_fork 0 -np 8 ./mpixstar cfrac=0.4 \
 temperature=100. lcpres=0 pressure=0.03 spectrum='pow' \
 spectun=0 trad=-1. density=1.0e+12 densitytyp=0 \
 columnsof=1.0e+20 columntyp=2 column=1.e+24 columnnst=9 columnint=1 \
@@ -106,29 +103,71 @@ kabund=0 caabund=1 scabund=0 tiabund=0 vabund=0 crabund=1 \
 mnabund=0 feabund=1 coabund=0 niabund=1 cuabund=0 znabund=0 \
 modelname='xstar_pg1211' nsteps=10 niter=99 \
 lwrite=0 lprint=1 lstep=0 emult=0.5 taumax=5. radexp=0. \
-xeemin=0.1 critf=1.e-6 vturbi=100. npass=1 ncn2=9999 
-</code></pre>
-
+xeemin=0.1 critf=1.e-6 vturbi=100. npass=1 ncn2=9999
+</pre>
 <p>5: How to run mpirun on clusters and supercomputers:</p>
-
-<p>In the batches folder, a sample of running batch files are included 
+<p>In the batches folder, a sample of running batch files are included
 for different job scheduling systems. To submit a batch file:</p>
-
 <p>Portable Batch System (PBS):</p>
-
-<pre><code> qsub mpixstar_run.job
-</code></pre>
-
+<pre class="code literal-block">
+qsub mpixstar_run.job
+</pre>
 <p>Sun Grid Engine (SGE):</p>
-
-<pre><code> qsub mpixstar_run.job
-</code></pre>
-
-<p>Simple Linux Utility for Resource Management (SLURM): </p>
-
-<pre><code> sbatch mpixstar_run.sh
-</code></pre>
-        </section>
+<pre class="code literal-block">
+qsub mpixstar_run.job
+</pre>
+<p>Simple Linux Utility for Resource Management (SLURM):</p>
+<pre class="code literal-block">
+sbatch mpixstar_run.sh
+</pre>
+</div>
+<div class="section" id="acknowledgement">
+<h2>Acknowledgement</h2>
+<p>If you employ <strong>MPI_XSTAR</strong> in your scholarly work, please acknowledge the usage by citing the following reference:</p>
+<ul class="simple">
+<li>Danehkar, A., Nowak, M. A., Lee, J. C. and Smith, R. K. (2018). MPI_XSTAR: MPI-based Parallelization of the XSTAR Photoionization Program. <em>Publ. Astron. Soc. Pac.</em>, <strong>130</strong>, 024501. doi:<a class="reference external" href="https://doi.org/10.1088/1538-3873/aa9dff">10.1088/1538-3873/aa9dff</a>  ads:<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2018PASP..130b4501D/abstract">2018PASP..130b4501D</a>.</li>
+</ul>
+<pre class="code bibtex literal-block">
+<span class="name class">&#64;article</span><span class="punctuation">{</span><span class="name label">Danehkar2018</span><span class="punctuation">,</span><span class="whitespace">
+  </span><span class="name attribute">author</span><span class="whitespace"> </span><span class="punctuation">=</span><span class="whitespace"> </span><span class="literal string">{{Danehkar}, Ashkbiz and {Nowak}, Michael A. and {Lee}, Julia C. and
+      {Smith}, Randall K.}</span><span class="punctuation">,</span><span class="whitespace">
+  </span><span class="name attribute">title</span><span class="whitespace"> </span><span class="punctuation">=</span><span class="whitespace"> </span><span class="literal string">{MPI\_XSTAR: MPI-based Parallelization of the XSTAR Photoionization Program}</span><span class="punctuation">,</span><span class="whitespace">
+  </span><span class="name attribute">journal</span><span class="whitespace"> </span><span class="punctuation">=</span><span class="whitespace"> </span><span class="literal string">{PASP}</span><span class="punctuation">,</span><span class="whitespace">
+  </span><span class="name attribute">volume</span><span class="whitespace"> </span><span class="punctuation">=</span><span class="whitespace"> </span><span class="literal string">{130}</span><span class="punctuation">,</span><span class="whitespace">
+  </span><span class="name attribute">number</span><span class="whitespace"> </span><span class="punctuation">=</span><span class="whitespace"> </span><span class="literal string">{984}</span><span class="punctuation">,</span><span class="whitespace">
+  </span><span class="name attribute">pages</span><span class="whitespace"> </span><span class="punctuation">=</span><span class="whitespace"> </span><span class="literal string">{024501}</span><span class="punctuation">,</span><span class="whitespace">
+  </span><span class="name attribute">year</span><span class="whitespace"> </span><span class="punctuation">=</span><span class="whitespace"> </span><span class="literal string">{2018}</span><span class="punctuation">,</span><span class="whitespace">
+  </span><span class="name attribute">doi</span><span class="whitespace"> </span><span class="punctuation">=</span><span class="whitespace"> </span><span class="literal string">{10.1088/1538-3873/aa9dff}</span><span class="whitespace">
+</span><span class="punctuation">}</span>
+</pre>
+</div>
+<div class="section" id="learn-more">
+<h2>Learn More</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><strong>Documentation</strong></td>
+<td><a class="reference external" href="https://xstarkit.github.io/MPI_XSTAR/">https://xstarkit.github.io/MPI_XSTAR/</a></td>
+</tr>
+<tr><td><strong>Repository</strong></td>
+<td><a class="reference external" href="https://github.com/xstarkit/MPI_XSTAR">https://github.com/xstarkit/MPI_XSTAR</a></td>
+</tr>
+<tr><td><strong>Issues &amp; Ideas</strong></td>
+<td><a class="reference external" href="https://github.com/xstarkit/MPI_XSTAR/issues">https://github.com/xstarkit/MPI_XSTAR/issues</a></td>
+</tr>
+<tr><td><strong>DOI</strong></td>
+<td><a class="reference external" href="https://doi.org/10.1088/1538-3873/aa9dff">10.1088/1538-3873/aa9dff</a></td>
+</tr>
+<tr><td><strong>Archive</strong></td>
+<td><a class="reference external" href="https://doi.org/10.5281/zenodo.1890561">10.5281/zenodo.1890561</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
         <footer>
           MPI_XSTAR is maintained by <a href="https://github.com/xstarkit">xstarkit</a><br>
