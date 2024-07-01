@@ -140,7 +140,7 @@ Acknowledgement
 
 If you employ **MPI_XSTAR** in your scholarly work, please acknowledge the usage by citing the following reference:
 	
-* Danehkar, A., Nowak, M. A., Lee, J. C. and Smith, R. K. (2018). MPI_XSTAR: MPI-based Parallelization of the XSTAR Photoionization Program. *Publ. Astron. Soc. Pac.*, **130**, 024501. doi: `10.1088/1538-3873/aa9dff <https://doi.org/10.1088/1538-3873/aa9dff>`_ ads: ` 2018PASP..130b4501D <https://ui.adsabs.harvard.edu/abs/2018PASP..130b4501D/abstract>`_.
+* Danehkar, A., Nowak, M. A., Lee, J. C. and Smith, R. K. (2018). MPI_XSTAR: MPI-based Parallelization of the XSTAR Photoionization Program. *Publ. Astron. Soc. Pac.*, **130**, 024501. doi: `10.1088/1538-3873/aa9dff <https://doi.org/10.1088/1538-3873/aa9dff>`_ ads: `2018PASP..130b4501D <https://ui.adsabs.harvard.edu/abs/2018PASP..130b4501D/abstract>`_.
 
 .. code-block:: bibtex
 
