@@ -106,7 +106,7 @@ nabund=1 oabund=1 fabund=0 neabund=1 naabund=0 mgabund=1 \
 alabund=1 siabund=1 pabund=0 sabund=1 clabund=0 arabund=1 \
 kabund=0 caabund=1 scabund=0 tiabund=0 vabund=0 crabund=1 \
 mnabund=0 feabund=1 coabund=0 niabund=1 cuabund=0 znabund=0 \
-modelname='xstar_pg1211' nsteps=10 niter=99 \
+modelname='xstar_pg1211' abundtbl='xdef' nsteps=10 niter=99 \
 lwrite=0 lprint=1 lstep=0 emult=0.5 taumax=5. radexp=0. \
 xeemin=0.1 critf=1.e-6 vturbi=100. npass=1 ncn2=9999 
 ```
